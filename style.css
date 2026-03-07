@@ -1,0 +1,954 @@
+:root {
+  --azul-escuro: #002a52;
+  --azul-claro: #b30527;
+  --branco: #ffffff;
+  --cinza-escuro: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* MENU FIXO */
+/* MENU FIXO */
+.menu-topo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  /* Centraliza a navbar */
+  align-items: center;
+  gap: 60px;
+  /* Adiciona espaço entre a logo (quando tiver) e os links */
+  background: transparent;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header-scrolled {
+  background: rgba(0, 42, 82, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 10px 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-menu-mobile {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.btn-menu-mobile:hover {
+  color: #b30527;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+.nav-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #b30527;
+}
+
+.logo-topo img {
+  height: 500px;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+.moldura-hero {
+  width: 75%;
+  /* BEM LARGO para garantir que o menu inteiro até "Contato" fique dentro */
+  height: 100%;
+  background-color: #b30527;
+  /* Vermelho */
+  clip-path: polygon(0 0, 100% 0, 40% 100%, 0% 100%);
+  /* Diagonal bem mais "deitada". Como a div cresceu, o fundo recua para 40% no rodapé */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Conteúdo na esquerda novamente */
+  margin-left: 0;
+  /* Tira o empurrão pra direita */
+}
+
+.faixa-triangulo {
+  width: calc(100% - 8px);
+  /* Borda de 8px */
+  height: 100%;
+  background:
+    linear-gradient(rgba(0, 42, 82, 0.85), rgba(0, 42, 82, 0.85)),
+    url("imagens/mapajp.jpg") no-repeat center center;
+  background-size: 300%;
+  clip-path: polygon(0 0, 99.5% 0, 39.5% 100%, 0% 100%);
+  /* Acompanha a moldura com diferença exata na angulação brutal */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 80px;
+  /* Volta o padding para o padrão */
+  padding-right: 55%;
+  /* Empurrando o texto muito para trás (para compensar a div gigante de 85%) */
+}
+
+.sos-badge-premium {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom, #444444, #000000);
+  /* Fundo preto degradê */
+  border-radius: 50px;
+  border-style: solid;
+  border-color: #b30527;
+  padding: 5px 25px 5px 5px;
+  /* Padding menor na esquerda para a bola encaixar */
+  border: 1px solid #333;
+  width: max-content;
+  /* Mudado de 100% para não estourar a caixa e pular */
+  gap: 15px;
+  position: absolute;
+  /* Muda para absolute para tirar do fluxo normal */
+  bottom: 25px;
+  /* Mesma distância da base que o botão do WhatsApp */
+  left: 50%;
+  /* Joga o eixo esquerdo para o centro exato da tela */
+  transform: translateX(-50%);
+  /* Centraliza a própria caixa, puxando metade dela para trás */
+  z-index: 100;
+  /* Garante que fique MUITO acima do vídeo e da moldura */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.sos-badge-premium:hover {
+  transform: translateX(-50%) scale(1.05);
+  /* Combina o translateX com o scale para não pular de volta pra esquerda */
+}
+
+.tel-icon {
+  color: white;
+  font-size: 20px;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* TEXTO SOS */
+.sos-texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.sos-titulo {
+  color: white;
+  font-size: 60px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding-left: 20px;
+}
+
+.sos-sub {
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 15px;
+}
+
+/* O PULSO DE ALERTA NA BOLA */
+/* Controla o container da imagem */
+.tel-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  /* Largura da área do ícone */
+  height: 25px;
+  /* Altura da área do ícone */
+}
+
+/* Controla a imagem do telefone especificamente */
+.tel-icon img {
+  width: 190%;
+  height: auto;
+  object-fit: contain;
+  /* Garante que a imagem caiba sem cortes */
+}
+
+/* Ajuste na bola vermelha (icone-telefone) */
+.icone-telefone {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #ff4d4d, #b30527);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* Impede que a bola amasse em telas menores */
+  box-shadow: 0 0 15px #b30527;
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+
+
+.logo-topo {
+  margin-bottom: -40px;
+  /* Reduz a distância gigantesca gerada pela imagem grande da logo pra não empurrar os demais textos pra fora da tela no mobile */
+}
+
+.texto-banner {
+  color: var(--branco);
+  max-width: 550px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.texto-banner h4 {
+  font-size: 16px;
+  /* Letra com bom tamanho de leitura sem ofuscar o H1 */
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--branco);
+  /* Solicitado para branco */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.texto-banner h1 {
+  font-size: 60px;
+  font-weight: 900;
+  margin-bottom: 25px;
+  /* Reduzido de 30px */
+  line-height: 1;
+  /* Apertar as linhas */
+  text-transform: uppercase;
+  color: #fff;
+  display: flex;
+  /* Flex ajuda a quebrar os blocos */
+  flex-direction: column;
+  align-items: flex-start;
+  /* Impede que a caixa ocupe 100% da largura disponível à toa */
+  gap: 0px;
+  /* REMOVIDO PARA COLAR AS CAIXAS AZUIS */
+}
+
+.texto-banner h1 span {
+  color: var(--branco);
+  background-color: var(--azul-escuro);
+  padding: 5px 20px;
+  /* Aumentado um pouco o padding vertical */
+  border-radius: 5px;
+  display: inline-block;
+  box-shadow: 0px 5px 15px rgba(0, 42, 82, 0.4);
+}
+
+.btn-banner {
+  display: inline-block;
+  padding: 15px 35px;
+  background: var(--azul-claro);
+  /* Fundo vermelho bordô */
+  color: var(--branco);
+  /* Texto branco */
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 10px 20px rgba(179, 5, 39, 0.3);
+  /* Sombra com tom bordô */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  /* Empurra os elementos debaixo para baixo, garantindo margem no celular */
+}
+
+.btn-banner:hover {
+  background: var(--branco);
+  /* Fica branco ao passar o mouse */
+  color: var(--azul-escuro);
+  /* Texto azul-marinho */
+  transform: translateY(-3px);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.sobre {
+  background: #fff;
+  padding: 80px 20px;
+}
+
+.container-sobre {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sobre-img {
+  position: relative;
+  flex: 1 1 500px;
+}
+
+.sobre-img img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.bg-img {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  background: var(--azul-claro);
+  z-index: 1;
+}
+
+.conteiner-adm {
+  max-width: 1100px;
+  margin: 80px auto 0;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.carla-container {
+  position: relative;
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.carla-container img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.carla-bg {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 75%;
+  height: 100%;
+  background: var(--azul-claro);
+  z-index: 2;
+}
+
+.conteiner-adm .sobre-texto {
+  flex: 1 1 500px;
+}
+
+.sobre-texto {
+  flex: 1 1 500px;
+}
+
+.sobre-texto h2 {
+  font-size: 1.8rem;
+  color: var(--azul-escuro);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sobre-texto .barra {
+  width: 5px;
+  height: 40px;
+  background: var(--azul-claro);
+  display: inline-block;
+}
+
+.sobre-texto p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* ANIMAÇÕES AO ROLAR (SCROLL) */
+/* Elementos que vão vir da esquerda */
+.hidden-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1.2s ease-out;
+  /* Movimento mais brando e sedoso */
+}
+
+/* Elementos que vão vir da direita */
+.hidden-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1.2s ease-out;
+}
+
+/* Elementos que vão subir */
+.hidden-bottom {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+/* Classe ativada pelo JS quando o elemento entra na tela */
+.show-element {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Seção de Serviços */
+.servicos {
+  background-color: #e3e3e3;
+  padding: 60px 20px;
+  display: flex;
+}
+
+.container-servicos {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container-servicos h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #002C3E;
+  text-align: left;
+}
+
+.barra {
+  display: inline-block;
+  width: 5px;
+  height: 30px;
+  background-color: var(--azul-claro);
+  /* Mudado de #00A1B0 para bordô */
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.cards-servicos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 30px 20px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* A transição normal cuida do hover apenas (o scroll já tem sua transição nas hidden classes) */
+  transition: transform 0.3s;
+}
+
+/* Efeito Cascata na entrada dos serviços (1 por 1) */
+.cards-servicos .card:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.cards-servicos .card:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.cards-servicos .card:nth-child(3) {
+  transition-delay: 0.15s;
+}
+
+.cards-servicos .card:nth-child(4) {
+  transition-delay: 0.2s;
+}
+
+.cards-servicos .card:nth-child(5) {
+  transition-delay: 0.25s;
+}
+
+.cards-servicos .card:nth-child(6) {
+  transition-delay: 0.3s;
+}
+
+.cards-servicos .card:nth-child(7) {
+  transition-delay: 0.35s;
+}
+
+.cards-servicos .card:nth-child(8) {
+  transition-delay: 0.4s;
+}
+
+.cards-servicos .card:nth-child(9) {
+  transition-delay: 0.45s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card .icone {
+  margin-bottom: 15px;
+  color: #b30527;
+}
+
+.card .icone i {
+  font-size: 45px;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.card:hover .icone i {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #002C3E;
+}
+
+.card p {
+  font-size: 15px;
+  color: #555;
+}
+
+.contato {
+  background: #f9f9f9;
+  padding: 80px 20px;
+}
+
+.container-contato {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.contato-form,
+.contato-mapa {
+  flex: 1 1 450px;
+}
+
+.contato-form h2,
+.contato-mapa h2 {
+  font-size: 1.8rem;
+  color: var(--azul-escuro);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contato-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contato-form input,
+.contato-form textarea {
+  padding: 15px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: inherit;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+  border-color: #b30527;
+  box-shadow: 0 0 10px rgba(179, 5, 39, 0.2);
+  outline: none;
+}
+
+.contato-form button {
+  background: var(--azul-claro);
+  color: var(--branco);
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(179, 5, 39, 0.3);
+}
+
+.contato-form button:hover {
+  background: var(--azul-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 42, 82, 0.4);
+}
+
+.contato-mapa iframe {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+.rodape {
+  background: var(--azul-escuro);
+  color: var(--branco);
+  padding: 20px 20px 0;
+  border-top: 5px solid var(--azul-claro);
+  /* Barra bordô de destaque */
+}
+
+.container-rodape {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.rodape-brand,
+.rodape-contato,
+.rodape-social {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rodape-contato,
+.rodape-social {
+  padding-top: 50px;
+}
+
+.rodape-contato ul {
+  list-style: none;
+  text-align: left;
+  /* Mantém a lista alinhada à esquerda mas o bloco centralizado */
+}
+
+.rodape-col h3 {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.rodape-col h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--azul-claro);
+}
+
+.rodape-contato h3::after,
+.rodape-social h3::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rodape-brand img {
+  height: 250px;
+  /* Um pouco maior conforme pedido */
+  display: block;
+  margin-left: -20px;
+  /* Puxa um pouco mais para a esquerda */
+}
+
+.rodape-brand p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.rodape-contato ul {
+  list-style: none;
+}
+
+.rodape-contato ul li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.rodape-contato ul li i {
+  color: var(--azul-claro);
+  width: 20px;
+  text-align: center;
+}
+
+.rodape-social .social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.rodape-social .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  color: var(--branco);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rodape-social .social-links a:hover {
+  background: var(--azul-claro);
+  transform: translateY(-5px);
+  border-color: var(--azul-claro);
+}
+
+.rodape-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 25px 20px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.container-bottom {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.container-bottom p {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.container-bottom a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.container-bottom a:hover {
+  opacity: 1;
+  color: var(--azul-claro);
+}
+
+.whatsapp-fixo {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.whatsapp-fixo:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-fixo img {
+  width: 60px;
+  height: 60px;
+}
+
+/* RESPONSIVIDADE (MOBILE & TABLET) */
+@media (max-width: 900px) {
+  .menu-topo {
+    padding: 15px 20px;
+    background: rgba(0, 42, 82, 0.95);
+  }
+
+  .header-scrolled {
+    padding: 10px 20px;
+  }
+
+  .btn-menu-mobile {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 42, 82, 0.98);
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-menu.show {
+    max-height: 300px;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Hero Section Responsiva */
+  .moldura-hero {
+    width: 100%;
+    margin-left: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
+    background-color: rgba(179, 5, 39, 0.85);
+    /* Fundo com opacidade p/ ver o video */
+  }
+
+  .faixa-triangulo {
+    clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sos-badge-premium {
+    position: relative;
+    /* Volta ao normal no mobile */
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    margin-left: 0;
+    margin-top: 50px;
+  }
+
+  .sos-badge-premium:hover {
+    transform: scale(1.05);
+    /* Hover normal no mobile */
+  }
+
+  .texto-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .texto-banner h1 {
+    font-size: 2.2rem;
+  }
+
+  .logo-topo img {
+    height: 140px;
+    /* Diminui ainda mais no mobile para evitar quebra do botão */
+  }
+
+  .logo-topo {
+    margin-bottom: -20px;
+  }
+
+  /* Sobre e Adm empilhados */
+  .container-sobre,
+  .conteiner-adm {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-texto h2 {
+    justify-content: center;
+  }
+
+  .carla-container {
+    justify-content: center;
+  }
+
+  .bg-img,
+  .carla-bg {
+    display: none;
+    /* Simplifica o visual no mobile para não espremer */
+  }
+
+  .contato-mapa iframe {
+    height: 300px;
+  }
+
+  .rodape-info {
+    text-align: center;
+  }
+
+  .container-rodape {
+    justify-content: center;
+  }
+}
