@@ -43,3 +43,42 @@ const hiddenElements = document.querySelectorAll('.hidden-left, .hidden-right, .
 
 // Mandar o observador monitorar cada um deles
 hiddenElements.forEach((el) => observer.observe(el));
+
+// Contador Animado
+function animateCounters() {
+  const counters = document.querySelectorAll('.stat-number');
+  const speed = 200;
+
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const countString = counter.innerText.replace(/[^\d]/g, '') || '0';
+      const count = parseInt(countString);
+      const suffix = counter.getAttribute('data-suffix') || '';
+      
+      const inc = target / speed;
+
+      if (count < target) {
+        const nextValue = Math.ceil(count + inc);
+        counter.innerText = (nextValue > target ? target : nextValue) + suffix;
+        setTimeout(updateCount, 1);
+      } else {
+        counter.innerText = target + suffix;
+      }
+    };
+    updateCount();
+  });
+}
+
+// Observador específico para os contadores
+const statsSection = document.querySelector('.stats');
+if (statsSection) {
+  const statsObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      statsObserver.unobserve(statsSection);
+    }
+  }, { threshold: 0.5 });
+  
+  statsObserver.observe(statsSection);
+}

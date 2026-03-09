@@ -18,29 +18,25 @@ html {
 }
 
 /* MENU FIXO */
-/* MENU FIXO */
 .menu-topo {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 50px;
+  padding: 25px 80px;
   display: flex;
   justify-content: center;
-  /* Centraliza a navbar */
   align-items: center;
-  gap: 60px;
-  /* Adiciona espaço entre a logo (quando tiver) e os links */
-  background: transparent;
+  background: rgba(0, 42, 82, 0.85);
+  backdrop-filter: blur(15px);
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .header-scrolled {
-  background: rgba(0, 42, 82, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 10px 50px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 15px 80px;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .btn-menu-mobile {
@@ -57,23 +53,75 @@ html {
   color: #b30527;
 }
 
+.logo-nome img {
+  height: 60px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-nome img:hover {
+  transform: scale(1.05);
+}
+
 .nav-menu {
   display: flex;
-  gap: 50px;
+  gap: 35px;
   list-style: none;
   transition: all 0.3s ease;
+  align-items: center;
 }
 
 .nav-menu li a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding: 5px 0;
   transition: color 0.3s;
 }
 
+/* Link Hover Effect (Animated Underline) */
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--azul-claro);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
 .nav-menu li a:hover {
-  color: #b30527;
+  color: var(--azul-claro);
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+/* Contato CTA Style */
+.nav-menu li:last-child a {
+  background: var(--azul-claro);
+  padding: 10px 25px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-menu li:last-child a::after {
+  display: none;
+}
+
+.nav-menu li:last-child a:hover {
+  background: var(--branco);
+  color: var(--azul-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .logo-topo img {
@@ -99,71 +147,55 @@ html {
 
 
 .moldura-hero {
-  width: 75%;
-  /* BEM LARGO para garantir que o menu inteiro até "Contato" fique dentro */
+  width: 45%;
   height: 100%;
-  background-color: #b30527;
-  /* Vermelho */
-  clip-path: polygon(0 0, 100% 0, 40% 100%, 0% 100%);
-  /* Diagonal bem mais "deitada". Como a div cresceu, o fundo recua para 40% no rodapé */
+  background-color: var(--azul-claro);
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* Conteúdo na esquerda novamente */
   margin-left: 0;
-  /* Tira o empurrão pra direita */
+  position: relative;
+  z-index: 2;
 }
 
 .faixa-triangulo {
-  width: calc(100% - 8px);
-  /* Borda de 8px */
+  width: calc(100% - 5px);
   height: 100%;
   background:
     linear-gradient(rgba(0, 42, 82, 0.85), rgba(0, 42, 82, 0.85)),
     url("imagens/mapajp.jpg") no-repeat center center;
-  background-size: 300%;
-  clip-path: polygon(0 0, 99.5% 0, 39.5% 100%, 0% 100%);
-  /* Acompanha a moldura com diferença exata na angulação brutal */
+  background-size: cover;
+  clip-path: polygon(0 0, 99.5% 0, 69.5% 100%, 0% 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 80px;
-  /* Volta o padding para o padrão */
-  padding-right: 55%;
-  /* Empurrando o texto muito para trás (para compensar a div gigante de 85%) */
+  padding-left: 60px;
+  padding-right: 20%;
 }
 
 .sos-badge-premium {
   display: flex;
   align-items: center;
   background: linear-gradient(to bottom, #444444, #000000);
-  /* Fundo preto degradê */
   border-radius: 50px;
-  border-style: solid;
-  border-color: #b30527;
   padding: 5px 25px 5px 5px;
-  /* Padding menor na esquerda para a bola encaixar */
-  border: 1px solid #333;
+  border: 1px solid #b30527;
   width: max-content;
-  /* Mudado de 100% para não estourar a caixa e pular */
   gap: 15px;
   position: absolute;
-  /* Muda para absolute para tirar do fluxo normal */
   bottom: 25px;
-  /* Mesma distância da base que o botão do WhatsApp */
   left: 50%;
-  /* Joga o eixo esquerdo para o centro exato da tela */
   transform: translateX(-50%);
-  /* Centraliza a própria caixa, puxando metade dela para trás */
   z-index: 100;
-  /* Garante que fique MUITO acima do vídeo e da moldura */
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(179, 5, 39, 0.5);
 }
 
 .sos-badge-premium:hover {
   transform: translateX(-50%) scale(1.05);
-  /* Combina o translateX com o scale para não pular de volta pra esquerda */
+  box-shadow: 0 0 25px rgba(179, 5, 39, 0.8);
 }
 
 .tel-icon {
@@ -244,8 +276,12 @@ html {
 
 
 .logo-topo {
-  margin-bottom: -40px;
-  /* Reduz a distância gigantesca gerada pela imagem grande da logo pra não empurrar os demais textos pra fora da tela no mobile */
+  margin-bottom: -60px;
+}
+
+.logo-topo img {
+  height: 400px;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
 }
 
 .texto-banner {
@@ -287,10 +323,13 @@ html {
   color: var(--branco);
   background-color: var(--azul-escuro);
   padding: 5px 20px;
-  /* Aumentado um pouco o padding vertical */
   border-radius: 5px;
   display: inline-block;
-  box-shadow: 0px 5px 15px rgba(0, 42, 82, 0.4);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.texto-banner h1 span.highlight {
+  background-color: var(--azul-claro);
 }
 
 .btn-banner {
@@ -404,12 +443,14 @@ html {
 }
 
 .sobre-texto h2 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: var(--azul-escuro);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
+  font-weight: 900;
+  letter-spacing: -1px;
 }
 
 .sobre-texto .barra {
@@ -493,13 +534,30 @@ html {
 
 .card {
   background-color: white;
-  border: 1px solid #ddd;
-  padding: 30px 20px;
-  width: 300px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  /* A transição normal cuida do hover apenas (o scroll já tem sua transição nas hidden classes) */
-  transition: transform 0.3s;
+  border: none;
+  padding: 40px 30px;
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--azul-claro);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleY(1);
 }
 
 /* Efeito Cascata na entrada dos serviços (1 por 1) */
@@ -804,6 +862,159 @@ html {
   color: var(--azul-claro);
 }
 
+/* STATS SECTION */
+.stats {
+  background: var(--azul-escuro);
+  padding: 80px 20px;
+  color: #fff;
+}
+
+.container-stats {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1 1 200px;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--azul-claro);
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.stat-text {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* MARCAS REVOLVING AREA */
+.marcas {
+  background: #f1f1f1;
+  padding: 40px 0;
+  overflow: hidden;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.carousel-marcas {
+  display: flex;
+  width: 100%;
+}
+
+.track-marcas {
+  display: flex;
+  gap: 60px;
+  animation: scroll-marcas 30s linear infinite;
+  align-items: center;
+}
+
+.marca-item {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #999;
+  white-space: nowrap;
+  transition: color 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.marca-item:hover {
+  color: var(--azul-escuro);
+}
+
+@keyframes scroll-marcas {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 30px));
+  }
+}
+
+/* DEPOIMENTOS */
+.depoimentos {
+  background: var(--branco);
+  padding: 80px 20px;
+}
+
+.container-depoimentos {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-depoimentos h2 {
+  font-size: 2rem;
+  color: var(--azul-escuro);
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.grid-depoimentos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.depoimento-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  transition: transform 0.3s ease;
+  flex: 1 1 350px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.depoimento-card:hover {
+  transform: translateY(-10px);
+}
+
+.depoimento-info i {
+  font-size: 2rem;
+  color: var(--azul-claro);
+  margin-bottom: 20px;
+  display: block;
+  opacity: 0.3;
+}
+
+.depoimento-info p {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.depoimento-info h4 {
+  color: var(--azul-escuro);
+  margin-bottom: 5px;
+}
+
+.estrelas {
+  color: #ffc107;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
 .whatsapp-fixo {
   position: fixed;
   bottom: 25px;
@@ -870,29 +1081,22 @@ html {
   /* Hero Section Responsiva */
   .moldura-hero {
     width: 100%;
-    margin-left: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
-    background-color: rgba(179, 5, 39, 0.85);
-    /* Fundo com opacidade p/ ver o video */
+    clip-path: none;
+    background: linear-gradient(rgba(0, 42, 82, 0.8), rgba(0, 42, 82, 0.8));
+    justify-content: center;
   }
 
   .faixa-triangulo {
-    clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+    clip-path: none;
     padding: 20px;
     align-items: center;
-    text-align: center;
+    background: transparent;
   }
 
   .sos-badge-premium {
-    position: relative;
-    /* Volta ao normal no mobile */
-    top: auto;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    transform: none;
-    margin-left: 0;
-    margin-top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 80px;
   }
 
   .sos-badge-premium:hover {
