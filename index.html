@@ -13,19 +13,32 @@
 <body>
 
   <header class="menu-topo" id="header">
-    <div class="logo-nome">
-      <img src="" alt="">
-    </div>
-    <nav>
-      <button class="btn-menu-mobile" id="btn-menu-mobile">
-        <i class="fas fa-bars"></i>
-      </button>
+    <nav class="container-nav">
+      <div class="nav-contact">
+        <div class="nav-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>João Pessoa - PB</span>
+        </div>
+        <div class="nav-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>(83) 98843-3041</span>
+        </div>
+        <div class="nav-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>contato@hidrauldiesel.com.br</span>
+        </div>
+      </div>
+
       <ul class="nav-menu" id="nav-menu">
         <li><a href="#inicio">Início</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
+
+      <button class="btn-menu-mobile" id="btn-menu-mobile">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
   </header>
 
@@ -37,15 +50,17 @@
       <source src="imagens/0306.mp4" type="video/mp4">
     </video>
 
-    <div class="sos-badge-premium">
-      <div class="icone-telefone">
-        <i class="fas fa-phone-alt"></i> <span class="tel-icon"><img src="imagens/telefone.png" alt=""></span>
+    <a href="tel:+5583988433041" class="sos-link" aria-label="Ligar para SOS 24H">
+      <div class="sos-badge-premium">
+        <div class="icone-telefone">
+          <span class="tel-icon"><img src="imagens/telefone.png" alt=""></span>
+        </div>
+        <div class="sos-texto">
+          <span class="sos-titulo">SOS</span>
+          <span class="sos-sub">SOCORRO 24H - LIGUE JÁ!</span>
+        </div>
       </div>
-      <div class="sos-texto">
-        <span class="sos-titulo">SOS</span>
-        <span class="sos-sub">SOCORRO 24H - LIGUE JÁ!</span>
-      </div>
-    </div>
+    </a>
 
     <div class="moldura-hero">
       <div class="faixa-triangulo">
@@ -56,10 +71,34 @@
           <h4>Especialistas em</h4>
           <h1>
             <span>Truck</span>
-            <span class="highlight">Service</span>
+            <span>Service</span>
           </h1>
           <a href="#sobre" class="btn-banner">Saiba mais ↓</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="marcas">
+    <div class="carousel-marcas">
+      <div class="track-marcas">
+        <div class="marca-item">VOLVO</div>
+        <div class="marca-item">SCANIA</div>
+        <div class="marca-item">MERCEDES-BENZ</div>
+        <div class="marca-item">MAN</div>
+        <div class="marca-item">IVECO</div>
+        <div class="marca-item">DAF</div>
+        <div class="marca-item">VOLKSWAGEN</div>
+        <div class="marca-item">FORD</div>
+        <!-- Duplicados para loop infinito -->
+        <div class="marca-item">VOLVO</div>
+        <div class="marca-item">SCANIA</div>
+        <div class="marca-item">MERCEDES-BENZ</div>
+        <div class="marca-item">MAN</div>
+        <div class="marca-item">IVECO</div>
+        <div class="marca-item">DAF</div>
+        <div class="marca-item">VOLKSWAGEN</div>
+        <div class="marca-item">FORD</div>
       </div>
     </div>
   </section>
