@@ -84,3 +84,39 @@ if (statsSection) {
   }, { threshold: 0.4 });
   statsObserver.observe(statsSection);
 }
+
+// Carrossel de depoimentos
+(function () {
+  const track = document.querySelector(".dep-track");
+  if (!track) return;
+
+  const cards = track.querySelectorAll(".depoimento-card");
+  const dots = document.querySelectorAll(".dep-dot");
+  const prevBtn = document.querySelector(".dep-prev");
+  const nextBtn = document.querySelector(".dep-next");
+  let current = 0;
+  let timer;
+
+  function goTo(index) {
+    current = (index + cards.length) % cards.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle("active", i === current));
+  }
+
+  function startAuto() {
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  function resetAuto() {
+    clearInterval(timer);
+    startAuto();
+  }
+
+  prevBtn.addEventListener("click", () => { goTo(current - 1); resetAuto(); });
+  nextBtn.addEventListener("click", () => { goTo(current + 1); resetAuto(); });
+  dots.forEach((dot, i) => dot.addEventListener("click", () => { goTo(i); resetAuto(); }));
+  track.addEventListener("mouseenter", () => clearInterval(timer));
+  track.addEventListener("mouseleave", startAuto);
+
+  startAuto();
+})();
