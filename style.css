@@ -1419,7 +1419,7 @@ html {
     gap: 24px;
   }
 
-  /* Texto antes da imagem no mobile */
+  /* Padrão mobile: texto sempre antes da imagem */
   .container-sobre .sobre-img {
     order: 2;
     flex: 1 1 auto;
@@ -1432,8 +1432,14 @@ html {
     width: 100%;
   }
 
-  .conteiner-adm .sobre-texto,
+  .conteiner-adm .sobre-texto {
+    order: 1;
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
   .carla-container {
+    order: 2;
     flex: 1 1 auto;
     width: 100%;
   }
@@ -1450,11 +1456,13 @@ html {
   }
 
   .conteiner-heitor .sobre-texto {
+    order: 1;
     flex: 1 1 auto;
     width: 100%;
   }
 
   .heitor-container {
+    order: 2;
     flex: 1 1 auto;
     width: 100%;
     padding-right: 14px;
