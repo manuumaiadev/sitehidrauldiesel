@@ -482,6 +482,50 @@ html {
   display: none;
 }
 
+.conteiner-heitor {
+  max-width: 1100px;
+  margin: 80px auto 0;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.heitor-container {
+  position: relative;
+  flex: 1 1 400px;
+  padding-right: 18px;
+  padding-bottom: 18px;
+}
+
+.heitor-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow:
+    18px 18px 0 0 var(--bordo),
+    0 12px 40px rgba(0, 0, 0, 0.14);
+}
+
+.conteiner-heitor .sobre-texto {
+  flex: 1 1 500px;
+}
+
+.cargo-tag {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 6px 18px;
+  background: var(--azul-escuro);
+  color: #fff !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 4px;
+}
+
 .conteiner-adm .sobre-texto {
   flex: 1 1 500px;
 }
@@ -924,6 +968,49 @@ html {
   opacity: 0.9;
 }
 
+/* DIFERENCIAIS */
+.container-diferenciais {
+  max-width: 860px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 80px;
+  padding: 40px 20px;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+}
+
+.diferencial-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.container-diferenciais .diferencial-item:nth-child(1) { transition-delay: 0s; }
+.container-diferenciais .diferencial-item:nth-child(2) { transition-delay: 0.1s; }
+.container-diferenciais .diferencial-item:nth-child(3) { transition-delay: 0.2s; }
+.container-diferenciais .diferencial-item:nth-child(4) { transition-delay: 0.3s; }
+
+.dif-icone {
+  font-size: 48px;
+  color: var(--bordo);
+  flex-shrink: 0;
+  width: 60px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.diferencial-item:hover .dif-icone {
+  transform: scale(1.12);
+}
+
+.dif-texto h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.45;
+}
+
 /* MARCAS REVOLVING AREA */
 .marcas {
   background: #fff;
@@ -1355,6 +1442,31 @@ html {
     margin-top: 40px;
   }
 
+  .conteiner-heitor {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .conteiner-heitor .sobre-texto {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .heitor-container {
+    flex: 1 1 auto;
+    width: 100%;
+    padding-right: 14px;
+    padding-bottom: 14px;
+  }
+
+  .heitor-container img {
+    box-shadow:
+      14px 14px 0 0 var(--bordo),
+      0 8px 30px rgba(0, 0, 0, 0.14);
+  }
+
   .sobre-texto h2 {
     font-size: 1.8rem;
     justify-content: center;
@@ -1405,6 +1517,17 @@ html {
 
   .stat-text {
     font-size: 0.95rem;
+  }
+
+  /* DIFERENCIAIS */
+  .container-diferenciais {
+    gap: 30px 40px;
+    margin: 40px auto;
+  }
+
+  .dif-icone {
+    font-size: 40px;
+    width: 50px;
   }
 
   /* SERVIÇOS */
@@ -1565,6 +1688,18 @@ html {
 
   .container-stats {
     gap: 20px;
+  }
+
+  /* DIFERENCIAIS */
+  .container-diferenciais {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin: 32px auto;
+  }
+
+  .dif-icone {
+    font-size: 38px;
+    width: 46px;
   }
 
   .stat-item {
