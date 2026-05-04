@@ -13,7 +13,7 @@
 
 body,
 html {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -90,7 +90,7 @@ html {
 }
 
 .logo-nome img {
-  height: 60px;
+  height: 48px;
   width: auto;
   transition: transform 0.3s ease;
 }
@@ -160,15 +160,13 @@ html {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.logo-topo img {
-  height: 500px;
-}
-
 /* HERO */
 .hero {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  background: linear-gradient(135deg, #001220 0%, #002a52 50%, #001a33 100%);
+  isolation: isolate;
 }
 
 .video-bg {
@@ -436,24 +434,21 @@ html {
 .sobre-img {
   position: relative;
   flex: 1 1 500px;
+  padding-right: 18px;
+  padding-bottom: 18px;
 }
 
 .sobre-img img {
   width: 100%;
-  max-width: 600px;
   display: block;
-  position: relative;
-  z-index: 2;
+  border-radius: 10px;
+  box-shadow:
+    18px 18px 0 0 var(--bordo),
+    0 12px 40px rgba(0, 0, 0, 0.14);
 }
 
 .bg-img {
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 100%;
-  height: 100%;
-  background: var(--bordo);
-  z-index: 1;
+  display: none;
 }
 
 .conteiner-adm {
@@ -469,27 +464,22 @@ html {
 .carla-container {
   position: relative;
   flex: 1 1 400px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  padding-left: 18px;
+  padding-bottom: 18px;
 }
 
 .carla-container img {
   width: 100%;
-  max-width: 350px;
   height: auto;
-  position: relative;
-  z-index: 2;
+  display: block;
+  border-radius: 10px;
+  box-shadow:
+    -18px 18px 0 0 var(--bordo),
+    0 12px 40px rgba(0, 0, 0, 0.14);
 }
 
 .carla-bg {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 75%;
-  height: 100%;
-  background: var(--bordo);
-  z-index: 2;
+  display: none;
 }
 
 .conteiner-adm .sobre-texto {
@@ -525,45 +515,43 @@ html {
 }
 
 /* ANIMAÇÕES AO ROLAR (SCROLL) */
-/* Elementos que vão vir da esquerda */
 .hidden-left {
   opacity: 0;
-  transform: translateX(-50px);
-  transition: all 1.2s ease-out;
-  /* Movimento mais brando e sedoso */
+  transform: translateX(-60px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Elementos que vão vir da direita */
 .hidden-right {
   opacity: 0;
-  transform: translateX(50px);
-  transition: all 1.2s ease-out;
+  transform: translateX(60px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Elementos que vão subir */
 .hidden-bottom {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Classe ativada pelo JS quando o elemento entra na tela */
 .show-element {
   opacity: 1;
-  transform: translate(0);
+  transform: translate(0, 0);
 }
 
 /* Seção de Serviços */
 .servicos {
   background-color: #e3e3e3;
-  padding: 60px 20px;
-  display: flex;
+  padding: 80px 20px;
 }
 
 .container-servicos {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+  width: 100%;
 }
 
 .container-servicos h2 {
@@ -618,42 +606,16 @@ html {
   transform: scaleY(1);
 }
 
-/* Efeito Cascata na entrada dos serviços (1 por 1) */
-.cards-servicos .card:nth-child(1) {
-  transition-delay: 0.05s;
-}
-
-.cards-servicos .card:nth-child(2) {
-  transition-delay: 0.1s;
-}
-
-.cards-servicos .card:nth-child(3) {
-  transition-delay: 0.15s;
-}
-
-.cards-servicos .card:nth-child(4) {
-  transition-delay: 0.2s;
-}
-
-.cards-servicos .card:nth-child(5) {
-  transition-delay: 0.25s;
-}
-
-.cards-servicos .card:nth-child(6) {
-  transition-delay: 0.3s;
-}
-
-.cards-servicos .card:nth-child(7) {
-  transition-delay: 0.35s;
-}
-
-.cards-servicos .card:nth-child(8) {
-  transition-delay: 0.4s;
-}
-
-.cards-servicos .card:nth-child(9) {
-  transition-delay: 0.45s;
-}
+/* Efeito Cascata na entrada dos serviços */
+.cards-servicos .card:nth-child(1)  { transition-delay: 0s; }
+.cards-servicos .card:nth-child(2)  { transition-delay: 0.08s; }
+.cards-servicos .card:nth-child(3)  { transition-delay: 0.16s; }
+.cards-servicos .card:nth-child(4)  { transition-delay: 0.24s; }
+.cards-servicos .card:nth-child(5)  { transition-delay: 0.32s; }
+.cards-servicos .card:nth-child(6)  { transition-delay: 0.40s; }
+.cards-servicos .card:nth-child(7)  { transition-delay: 0.48s; }
+.cards-servicos .card:nth-child(8)  { transition-delay: 0.56s; }
+.cards-servicos .card:nth-child(9)  { transition-delay: 0.64s; }
 
 .card:hover {
   transform: translateY(-5px);
@@ -941,6 +903,11 @@ html {
   flex: 1 1 200px;
 }
 
+.container-stats .stat-item:nth-child(1) { transition-delay: 0s; }
+.container-stats .stat-item:nth-child(2) { transition-delay: 0.12s; }
+.container-stats .stat-item:nth-child(3) { transition-delay: 0.24s; }
+.container-stats .stat-item:nth-child(4) { transition-delay: 0.36s; }
+
 .stat-number {
   font-size: 3.5rem;
   font-weight: 900;
@@ -1041,8 +1008,13 @@ html {
 }
 
 .depoimento-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
+
+.grid-depoimentos .depoimento-card:nth-child(1) { transition-delay: 0s; }
+.grid-depoimentos .depoimento-card:nth-child(2) { transition-delay: 0.15s; }
+.grid-depoimentos .depoimento-card:nth-child(3) { transition-delay: 0.30s; }
 
 .depoimento-info i {
   font-size: 2rem;
@@ -1098,11 +1070,14 @@ html {
   height: 60px;
 }
 
-/* RESPONSIVIDADE (MOBILE & TABLET) */
+/* ================================================
+   RESPONSIVIDADE — TABLET (até 900px)
+   ================================================ */
 @media (max-width: 900px) {
+
+  /* NAV */
   .menu-topo {
     padding: 0;
-    background: #001a33;
   }
 
   .nav-contact {
@@ -1110,14 +1085,20 @@ html {
   }
 
   .container-nav {
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 12px 20px;
   }
 
   .header-scrolled {
     padding: 0;
+  }
+
+  .menu-topo .logo-nome {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-nome img {
+    height: 40px;
   }
 
   .btn-menu-mobile {
@@ -1129,54 +1110,297 @@ html {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(0, 42, 82, 0.98);
+    background: rgba(0, 26, 51, 0.98);
+    backdrop-filter: blur(10px);
     flex-direction: column;
     gap: 0;
     text-align: center;
     max-height: 0;
     overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .nav-menu.show {
-    max-height: 300px;
+    max-height: 320px;
   }
 
   .nav-menu li a {
     display: block;
-    padding: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
   }
 
-  /* Hero Section Responsiva */
+  .nav-menu li:last-child a {
+    background: transparent;
+    padding: 15px 20px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .nav-menu li:last-child a:hover {
+    background: var(--bordo);
+    color: var(--branco);
+    transform: none;
+  }
+
+  /* HERO */
   .moldura-hero {
     width: 100%;
     clip-path: none;
-    background: linear-gradient(rgba(0, 42, 82, 0.8), rgba(0, 42, 82, 0.8));
+    background: linear-gradient(rgba(0, 42, 82, 0.78), rgba(0, 26, 51, 0.92));
     justify-content: center;
   }
 
   .faixa-triangulo {
     clip-path: none;
-    padding: 20px;
+    padding: 80px 24px 30px;
     align-items: center;
     background: transparent;
+    justify-content: center;
+  }
+
+  .texto-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .texto-banner h4 {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+
+  .texto-banner h1 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+
+  .texto-banner h1 span {
+    align-self: center;
+  }
+
+  .logo-topo {
+    margin-bottom: -15px;
+  }
+
+  .logo-topo img {
+    height: 130px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .btn-banner {
+    font-size: 1rem;
+    padding: 13px 28px;
+    margin-bottom: 20px;
   }
 
   .sos-link {
     bottom: 20px;
-    left: auto;
-    right: 20px;
-    transform: none;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
   }
 
   .sos-badge-premium {
-    padding: 12px;
-    border-radius: 50%;
-    gap: 0;
+    padding: 12px 24px 12px 12px;
+    border-radius: 60px;
+    gap: 14px;
   }
 
   .sos-texto {
-    display: none;
+    display: flex;
+  }
+
+  .sos-titulo {
+    font-size: 36px;
+  }
+
+  .sos-sub {
+    font-size: 9px;
+  }
+
+  .icone-telefone {
+    width: 46px;
+    height: 46px;
+  }
+
+  /* SOBRE */
+  .sobre {
+    padding: 60px 20px;
+  }
+
+  .container-sobre,
+  .conteiner-adm {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  /* Texto antes da imagem no mobile */
+  .container-sobre .sobre-img {
+    order: 2;
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .container-sobre .sobre-texto {
+    order: 1;
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .conteiner-adm .sobre-texto,
+  .carla-container {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .conteiner-adm {
+    margin-top: 40px;
+  }
+
+  .sobre-texto h2 {
+    font-size: 1.8rem;
+    justify-content: center;
+  }
+
+  .sobre-texto p {
+    font-size: 1rem;
+  }
+
+  .carla-container {
+    justify-content: center;
+  }
+
+  .sobre-img {
+    padding-right: 14px;
+    padding-bottom: 14px;
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  .sobre-img img {
+    box-shadow:
+      14px 14px 0 0 var(--bordo),
+      0 8px 30px rgba(0, 0, 0, 0.14);
+  }
+
+  .carla-container {
+    padding-left: 14px;
+    padding-bottom: 14px;
+    padding-top: 0;
+    padding-right: 0;
+  }
+
+  .carla-container img {
+    box-shadow:
+      -14px 14px 0 0 var(--bordo),
+      0 8px 30px rgba(0, 0, 0, 0.14);
+  }
+
+  /* STATS */
+  .stats {
+    padding: 60px 20px;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+  }
+
+  .stat-text {
+    font-size: 0.95rem;
+  }
+
+  /* SERVIÇOS */
+  .servicos {
+    padding: 60px 20px;
+  }
+
+  .container-servicos h2 {
+    font-size: 1.7rem;
+  }
+
+  .cards-servicos {
+    gap: 16px;
+  }
+
+  .card {
+    width: calc(50% - 8px);
+    padding: 30px 20px;
+    flex-shrink: 0;
+  }
+
+  /* DEPOIMENTOS */
+  .depoimentos {
+    padding: 60px 20px;
+  }
+
+  .container-depoimentos h2 {
+    font-size: 1.7rem;
+  }
+
+  /* CONTATO */
+  .contato {
+    padding: 60px 20px;
+  }
+
+  .contato-form h2,
+  .contato-mapa h2 {
+    font-size: 1.5rem;
+  }
+
+  .contato-mapa iframe {
+    height: 300px;
+    min-height: 300px;
+  }
+
+  /* MARCAS */
+  .marca-item {
+    font-size: 1.5rem;
+  }
+
+  /* RODAPÉ */
+  .rodape-brand img {
+    height: 180px;
+    margin-left: 0;
+  }
+
+  .rodape-contato,
+  .rodape-social {
+    padding-top: 0;
+  }
+
+  .container-rodape {
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .container-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+}
+
+/* ================================================
+   RESPONSIVIDADE — CELULAR (até 600px)
+   ================================================ */
+@media (max-width: 600px) {
+
+  /* HERO / SOS */
+  .sos-titulo {
+    font-size: 30px;
+  }
+
+  .sos-sub {
+    font-size: 8px;
+  }
+
+  .sos-badge-premium {
+    padding: 10px 18px 10px 10px;
+    gap: 12px;
   }
 
   .icone-telefone {
@@ -1184,55 +1408,210 @@ html {
     height: 40px;
   }
 
-  .texto-banner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .texto-banner h1 {
-    font-size: 2.2rem;
-  }
-
   .logo-topo img {
-    height: 140px;
-    /* Diminui ainda mais no mobile para evitar quebra do botão */
+    height: 105px;
   }
 
   .logo-topo {
-    margin-bottom: -20px;
+    margin-bottom: -10px;
   }
 
-  /* Sobre e Adm empilhados */
-  .container-sobre,
+  .texto-banner h4 {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .texto-banner h1 {
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+  }
+
+  .btn-banner {
+    font-size: 0.9rem;
+    padding: 12px 22px;
+  }
+
+  /* SOBRE */
+  .sobre {
+    padding: 50px 16px;
+  }
+
   .conteiner-adm {
-    flex-direction: column;
-    text-align: center;
+    margin-top: 28px;
   }
 
   .sobre-texto h2 {
-    justify-content: center;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
   }
 
-  .carla-container {
-    justify-content: center;
+  .sobre-texto p {
+    font-size: 0.95rem;
   }
 
-  .bg-img,
-  .carla-bg {
-    display: none;
-    /* Simplifica o visual no mobile para não espremer */
+  /* STATS */
+  .stats {
+    padding: 50px 16px;
   }
 
-  .contato-mapa iframe {
-    height: 300px;
+  .container-stats {
+    gap: 20px;
   }
 
-  .rodape-info {
-    text-align: center;
+  .stat-item {
+    flex: 1 1 130px;
   }
 
-  .container-rodape {
-    justify-content: center;
+  .stat-number {
+    font-size: 2.4rem;
+  }
+
+  .stat-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* SERVIÇOS */
+  .servicos {
+    padding: 50px 16px;
+  }
+
+  .container-servicos h2 {
+    font-size: 1.4rem;
+  }
+
+  .cards-servicos {
+    gap: 12px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 28px 20px;
+  }
+
+  .card .icone i {
+    font-size: 36px;
+  }
+
+  .card h3 {
+    font-size: 17px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  /* DEPOIMENTOS */
+  .depoimentos {
+    padding: 50px 16px;
+  }
+
+  .container-depoimentos h2 {
+    font-size: 1.4rem;
+    margin-bottom: 35px;
+  }
+
+  .depoimento-card {
+    padding: 28px 20px;
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  /* CONTATO */
+  .contato {
+    padding: 50px 16px;
+  }
+
+  .contato-form h2,
+  .contato-mapa h2 {
+    font-size: 1.3rem;
+  }
+
+  /* MARCAS */
+  .marcas {
+    padding: 28px 0;
+  }
+
+  .marca-item {
+    font-size: 1.2rem;
+  }
+
+  .track-marcas {
+    gap: 40px;
+  }
+
+  /* RODAPÉ */
+  .rodape {
+    padding: 30px 16px 0;
+  }
+
+  .rodape-brand img {
+    height: 140px;
+  }
+
+  .rodape-col h3 {
+    font-size: 1rem;
+  }
+
+  .rodape-contato ul li {
+    font-size: 0.88rem;
+  }
+
+  .container-bottom p {
+    font-size: 0.78rem;
+  }
+
+  /* WHATSAPP */
+  .whatsapp-fixo {
+    width: 52px;
+    height: 52px;
+    bottom: 18px;
+    right: 18px;
+  }
+
+  .whatsapp-fixo img {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* ================================================
+   RESPONSIVIDADE — TELA PEQUENA (até 380px)
+   ================================================ */
+@media (max-width: 380px) {
+
+  .logo-nome img {
+    height: 34px;
+  }
+
+  .logo-topo img {
+    height: 85px;
+  }
+
+  .texto-banner h1 {
+    font-size: 1.6rem;
+  }
+
+  .texto-banner h4 {
+    font-size: 10px;
+  }
+
+  .btn-banner {
+    font-size: 0.85rem;
+    padding: 10px 18px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .sobre-texto h2 {
+    font-size: 1.3rem;
+  }
+
+  .container-servicos h2,
+  .container-depoimentos h2,
+  .contato-form h2,
+  .contato-mapa h2 {
+    font-size: 1.2rem;
   }
 }
